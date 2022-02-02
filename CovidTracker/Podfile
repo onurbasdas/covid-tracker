@@ -7,6 +7,6 @@ target 'CovidTracker' do
 
   # Pods for CovidTracker
 
-pod 'Alamofire'
+pod 'Charts'
 
 end

@@ -7,26 +7,6 @@
 
 import Foundation
 
-extension DateFormatter {
-    static let dayFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "YYYY-MM-dd"
-        formatter.timeZone = .current
-        formatter.locale = .current
-        return formatter
-    }()
-    
-    static let prettyFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeZone = .current
-        formatter.locale = .current
-        return formatter
-    }()
-}
-
-
-
 class APICaller {
     static let shared = APICaller()
     
@@ -102,37 +82,4 @@ class APICaller {
         task.resume()
     }
     
-}
-
-// MARK: Models
-
-struct StateListResponse: Codable {
-    let data: [State]
-}
-
-struct State: Codable {
-    let name: String
-    let state_code: String
-}
-
-struct CovidDataResponse: Codable {
-    let data: [CovidDayData]
-}
-
-struct CovidDayData: Codable {
-    let cases: CovidCases?
-    let date: String
-}
-
-struct CovidCases: Codable {
-    let total: TotalCases
-}
-
-struct TotalCases: Codable {
-    let value: Int?
-}
-
-struct DayData {
-    let date: Date
-    let count: Int
 }
